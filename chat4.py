@@ -69,7 +69,7 @@ if page == "Wardrobe Chat":
     st.markdown(
     """
     <div style='text-align: center;'>
-        Developed by <strong>Shreya Dhurde</strong> today ✨ <br>
+        Developed by <strong>Shreya Dhurde</strong> ✨ <br>
         <a href='https://www.linkedin.com/in/shreya-dhurde/' target='_blank'>🔗 Connect on LinkedIn</a>
     </div>
     """,
@@ -93,7 +93,7 @@ if page == "Wardrobe Chat":
         for i, (uid, data) in enumerate(available_images.items()):
             img = Image.open(data["file"])
             square_img = ImageOps.fit(img, (200, 200), method=Image.BICUBIC)
-            cols[i % 4].image(square_img, caption=f"{i+1}: {data['name']}", use_column_width=False)
+            cols[i % 4].image(square_img, caption=f"{i+1}: {data['name']}", use_container_width=False)
 
     for msg in st.session_state.wardrobe_messages:
         with st.chat_message(msg["role"]):
@@ -125,7 +125,7 @@ if page == "Wardrobe Chat":
                 for i, key in enumerate(confirmed_keys):
                     file = st.session_state.all_uploaded_images[key]["file"]
                     square_img = ImageOps.fit(Image.open(file), (200, 200), method=Image.BICUBIC)
-                    rec_cols[i % 3].image(square_img, caption=st.session_state.all_uploaded_images[key]["name"], use_column_width=False)
+                    rec_cols[i % 3].image(square_img, caption=st.session_state.all_uploaded_images[key]["name"], use_container_width=False)
 
             st.markdown("💬 " + response_text.strip())
 
@@ -144,7 +144,7 @@ elif page == "Laundry Basket":
     st.markdown(
         """
         <div style='text-align: center;'>
-            Developed by <strong>Shreya Dhurde</strong> today ✨ <br>
+            Developed by <strong>Shreya Dhurde</strong> ✨ <br>
             <a href='https://www.linkedin.com/in/shreya-dhurde/' target='_blank'>🔗 Connect on LinkedIn</a>
         </div>
         """,
@@ -157,7 +157,7 @@ elif page == "Laundry Basket":
         for i, (uid, data) in enumerate(st.session_state.laundry_basket.items()):
             img = Image.open(data["file"])
             square_img = ImageOps.fit(img, (200, 200), method=Image.BICUBIC)
-            cols[i % 3].image(square_img, caption=data["name"], use_column_width=False)
+            cols[i % 3].image(square_img, caption=data["name"], use_container_width=False)
 
         if st.button("♻️ Clear Laundry Basket"):
             for key in list(st.session_state.laundry_basket.keys()):
