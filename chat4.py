@@ -1,7 +1,6 @@
 import streamlit as st
 import os
 from PIL import Image, ImageOps
-from dotenv import load_dotenv
 import google.generativeai as genai
 import re
 import uuid
@@ -9,8 +8,7 @@ import uuid
 st.set_page_config(page_title="AI Wardrobe Assistant", layout="wide")
 
 # Load environment variables
-load_dotenv()
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 @st.cache_resource
 def initialize_gemini_model():
@@ -67,6 +65,16 @@ if "confirmed_keys" not in st.session_state:
 if page == "Wardrobe Chat":
     st.title("👗 AI Wardrobe Assistant")
     st.markdown("Upload your outfits and chat with a GEN-Z fashion stylist!")
+    st.markdown("---")
+    st.markdown(
+    """
+    <div style='text-align: center;'>
+        Developed by <strong>Shreya Dhurde</strong> today ✨ <br>
+        <a href='https://www.linkedin.com/in/shreya-dhurde/' target='_blank'>🔗 Connect on LinkedIn</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
     uploaded_files = st.sidebar.file_uploader("Choose clothing images", type=["jpg", "jpeg", "png"], accept_multiple_files=True, key="wardrobe_uploader")
 
@@ -132,6 +140,16 @@ if page == "Wardrobe Chat":
 
 elif page == "Laundry Basket":
     st.title("🧺 Laundry Basket")
+st.markdown("---")
+st.markdown(
+    """
+    <div style='text-align: center;'>
+        Developed by <strong>Shreya Dhurde</strong> today ✨ <br>
+        <a href='https://www.linkedin.com/in/shreya-dhurde/' target='_blank'>🔗 Connect on LinkedIn</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
     if st.session_state.laundry_basket:
         st.subheader("🧼 Outfits you've already worn:")
