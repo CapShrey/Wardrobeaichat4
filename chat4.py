@@ -140,16 +140,16 @@ if page == "Wardrobe Chat":
 
 elif page == "Laundry Basket":
     st.title("🧺 Laundry Basket")
-st.markdown("---")
-st.markdown(
-    """
-    <div style='text-align: center;'>
-        Developed by <strong>Shreya Dhurde</strong> today ✨ <br>
-        <a href='https://www.linkedin.com/in/shreya-dhurde/' target='_blank'>🔗 Connect on LinkedIn</a>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+    st.markdown("---")
+    st.markdown(
+        """
+        <div style='text-align: center;'>
+            Developed by <strong>Shreya Dhurde</strong> today ✨ <br>
+            <a href='https://www.linkedin.com/in/shreya-dhurde/' target='_blank'>🔗 Connect on LinkedIn</a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     if st.session_state.laundry_basket:
         st.subheader("🧼 Outfits you've already worn:")
